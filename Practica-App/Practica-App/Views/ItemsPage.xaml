@@ -10,7 +10,9 @@
 
 
     <StackLayout>
-
+        <StackLayout VerticalOptions="Start">
+            <Entry Focused="Entry_Focused" Placeholder="Selecciona el tipo" x:Name="entry"/>
+        </StackLayout>
         <!--<Picker x:Name="picker"
         Title="Selecciona una categoría" SelectedIndexChanged="OnPickerSelectedIndexChanged"
         >
