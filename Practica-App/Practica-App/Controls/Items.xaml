@@ -12,24 +12,15 @@
                 <Image Source="{Binding Imagen}" HeightRequest="20" WidthRequest="20" AbsoluteLayout.LayoutFlags="None" AbsoluteLayout.LayoutBounds="0,0,60,60"/>
 
 
-                <Label AutomationId="DayLabel" Text="{Binding Titulo}" 
-                           AbsoluteLayout.LayoutFlags="XProportional" AbsoluteLayout.LayoutBounds=".5,17,-1,-1"
-                           HorizontalTextAlignment="Center"
-                           StyleClass="MonthWhiteLabel"/>
-                <!--<Label AutomationId="DayLabel" Text="{Binding Fecha, Converter={StaticResource DayNumberDisplayConverter}}" 
-                           AbsoluteLayout.LayoutFlags="XProportional" AbsoluteLayout.LayoutBounds=".5,9,-1,-1"
-                           HorizontalTextAlignment="Center"
-                           StyleClass="MonthWhiteLabel"/>
-                <Label  Text="{Binding Fecha, Converter={StaticResource MonthDisplayConverter}}" 
-                           AbsoluteLayout.LayoutFlags="XProportional" AbsoluteLayout.LayoutBounds=".5,35,-1,-1"
-                           HorizontalTextAlignment="Center"
-                           StyleClass="SmallWhiteLabel"/>-->
+               
             </AbsoluteLayout>
             <StackLayout Grid.Column="1" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                <Label AutomationId="ImporteLabel" Text="{Binding Titulo}" 
+                           StyleClass="HeroDarkLabel"/>
                 <Label Text="Precio" 
                            StyleClass="DefaultText"/>
                 <Label AutomationId="ImporteLabel" Text="{Binding Precio, StringFormat='${0:n}'}}" 
-                           StyleClass="HeroDarkLabel"/>
+                           StyleClass="DefaultText"/>
                 <!--<Label AutomationId="ImporteLabel" Text="{Binding Titulo}" 
                            StyleClass="HeroDarkLabel"/>-->
 

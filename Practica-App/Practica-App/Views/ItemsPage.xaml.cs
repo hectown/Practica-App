@@ -27,6 +27,8 @@ namespace Practica_App.Views
         {
             base.OnAppearing();
             _viewModel.OnAppearing();
+            
+               _viewModel.LoadItemsCommand.Execute(false);
         }
     }
 }
