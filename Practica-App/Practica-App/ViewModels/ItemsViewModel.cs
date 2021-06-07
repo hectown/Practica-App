@@ -20,9 +20,16 @@ namespace Practica_App.ViewModels
 
         HttpClient client = new HttpClient(new HttpClientHandler() { ServerCertificateCustomValidationCallback = (o, cert, chain, errors) => true });
         public ObservableRangeCollection<Anuncio> Anuncios { get; } = new ObservableRangeCollection<Anuncio>();
+        
+     
+
+
+
+
+
 
         public Command LoadItemsCommand { get; }
-
+        public Command LoadItemsCategoriasCommand { get; }
 
         public ItemsViewModel()
         {
@@ -30,10 +37,12 @@ namespace Practica_App.ViewModels
           
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
-         
+          
         }
 
-        async Task<OperationResult<List<Anuncio>>> ExecuteLoadItemsCommand()
+
+
+            async Task<OperationResult<List<Anuncio>>> ExecuteLoadItemsCommand()
         {
             IsBusy = true;
             OperationResult<List<Anuncio>> result = new OperationResult<List<Anuncio>>() { Success = false, Message = string.Empty };
@@ -62,7 +71,8 @@ namespace Practica_App.ViewModels
 
                                     Anuncios.AddRange(result.Data);
 
-                                
+                           
+
                                 }
                         
                                 if (result == null)

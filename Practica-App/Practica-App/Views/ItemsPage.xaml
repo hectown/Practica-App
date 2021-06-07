@@ -8,31 +8,55 @@
              xmlns:controls="clr-namespace:Practica_App.Controls"
              x:Name="BrowseItemsPage">
 
-    <ContentPage.Content>
-        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <ListView x:Name="lstView" 
+
+    <StackLayout>
+
+        <!--<Picker x:Name="picker"
+        Title="Selecciona una categoría" SelectedIndexChanged="OnPickerSelectedIndexChanged"
+        >
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Todas</x:String>
+                    <x:String>Casas</x:String>
+                    <x:String>Autos</x:String>
+                    <x:String>Muebles</x:String>
+                    <x:String>Computación</x:String>
+                    <x:String>Joyas</x:String>
+                
+                </x:Array>
+               
+            </Picker.ItemsSource>
+        </Picker>-->
+
+        <SearchBar x:Name="SearchBar" TextChanged="OnTextChanged" />
+
+        <Slider x:Name="slider" 
+            Maximum="500000" MaximumTrackColor="Black" MinimumTrackColor="Black" ValueChanged="OnSliderValueChanged"/>
+        <Label x:Name="displayLabel"
+           Text="{Binding Source={x:Reference slider},Path=Value, StringFormat='El precio máximo es ${0:n}'}"
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" />
+
+        <ListView x:Name="lstView" 
                 HasUnevenRows="true" BackgroundColor="White"
                 HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
               
             
-                ItemsSource="{Binding Anuncios}" 
                 SeparatorColor="{StaticResource ListViewSeparatorColor}">
-                <ListView.Footer>
-                    <StackLayout Padding="{StaticResource StandardPadding}" >
-                        <ActivityIndicator BindingContext="{x:Reference BrowseItemsPage}" IsVisible="{Binding Path=BindingContext.IsBusy}" IsRunning="{Binding Path=BindingContext.IsBusy}" Color="Gray" />
-                   
-                    </StackLayout>
-                </ListView.Footer>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <controls:BaseCell>
-                            <controls:Items />
-                        </controls:BaseCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-          
-        </Grid>
+            <ListView.Footer>
+                <StackLayout Padding="{StaticResource StandardPadding}" >
+                    <ActivityIndicator BindingContext="{x:Reference BrowseItemsPage}" IsVisible="{Binding Path=BindingContext.IsBusy}" IsRunning="{Binding Path=BindingContext.IsBusy}" Color="Gray" />
 
-    </ContentPage.Content>
+                </StackLayout>
+            </ListView.Footer>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <controls:BaseCell>
+                        <controls:Items />
+                    </controls:BaseCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </StackLayout>
 </ContentPage>
