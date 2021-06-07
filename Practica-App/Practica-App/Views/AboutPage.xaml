@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Practica_App.Views.AboutPage"
              xmlns:vm="clr-namespace:Practica_App.ViewModels"
+             xmlns:behaviors="clr-namespace:Practica_App.Behavior"
              Title="{Binding Title}">
     
     <ContentPage.BindingContext>
@@ -31,13 +32,28 @@
             <StackLayout Orientation="Vertical" Padding="30,24,30,24" Spacing="10">
                 <Label x:Name="resultadoLabel" Text="{Binding Resultado}" FontSize="Default" TextColor="MediumVioletRed" IsVisible="{Binding ResultadoBool}"/>
                 <Label Text="Nombre" FontSize="16" Padding="0,0,0,0"/>
-                <Entry x:Name="nombreEntry" Text="{Binding Nombre}"/>
+                <Entry x:Name="nombreEntry" Text="{Binding Nombre}">
+                    <Entry.Behaviors>
+                        <behaviors:EntryLengthValidatorBehavior MaxLength="50" />
+                    </Entry.Behaviors>
+
+                </Entry>
 
                 <Label Text="Correo" FontSize="16" Padding="0,0,0,0"/>
-                <Entry x:Name="correoEntry" Text="{Binding Correo}"/>
+                <Entry x:Name="correoEntry" Text="{Binding Correo}">
+                    <Entry.Behaviors>
+                        <behaviors:EmailValidatorBehavior/>
+                    </Entry.Behaviors>
+                    
+                </Entry>
 
                 <Label Text="Mensaje" FontSize="16" Padding="0,0,0,0"/>
-                <Entry x:Name="mensajeEntry" Text="{Binding Mensaje}"/>
+                <Entry x:Name="mensajeEntry" Text="{Binding Mensaje}">
+                    <Entry.Behaviors>
+                        <behaviors:EntryLengthValidatorBehavior MaxLength="100" />
+                    </Entry.Behaviors>
+
+                </Entry>
                
                 <Button Margin="0,10,0,0" Text="Envia mensaje"
                         Command="{Binding OpenWebCommand}"

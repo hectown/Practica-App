@@ -61,7 +61,7 @@ namespace Practica_App.ViewModels
             ResultadoBool = false;
             Resultado = "";
             IsBusy = false;
-            OpenWebCommand = new Command(async () => await SendCorreo()); ;
+           // OpenWebCommand = new Command(async () => await SendCorreo()); ;
         }
 
         public ICommand OpenWebCommand { get; }
@@ -131,12 +131,6 @@ namespace Practica_App.ViewModels
 
             
         }
-    
-
-
-
-
-
 
 
 
