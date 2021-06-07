@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Practica_App.Controls.Items">
+    <ContentView.Content>
+        <Grid Padding="{StaticResource StandardCellPadding}" ColumnSpacing="{StaticResource StandardSpacing}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Image Source="{Binding Imagen}" HeightRequest="20" WidthRequest="20" AbsoluteLayout.LayoutFlags="None" AbsoluteLayout.LayoutBounds="0,0,60,60"/>
+
+
+                <Label AutomationId="DayLabel" Text="{Binding Titulo}" 
+                           AbsoluteLayout.LayoutFlags="XProportional" AbsoluteLayout.LayoutBounds=".5,17,-1,-1"
+                           HorizontalTextAlignment="Center"
+                           StyleClass="MonthWhiteLabel"/>
+                <!--<Label AutomationId="DayLabel" Text="{Binding Fecha, Converter={StaticResource DayNumberDisplayConverter}}" 
+                           AbsoluteLayout.LayoutFlags="XProportional" AbsoluteLayout.LayoutBounds=".5,9,-1,-1"
+                           HorizontalTextAlignment="Center"
+                           StyleClass="MonthWhiteLabel"/>
+                <Label  Text="{Binding Fecha, Converter={StaticResource MonthDisplayConverter}}" 
+                           AbsoluteLayout.LayoutFlags="XProportional" AbsoluteLayout.LayoutBounds=".5,35,-1,-1"
+                           HorizontalTextAlignment="Center"
+                           StyleClass="SmallWhiteLabel"/>-->
+            </AbsoluteLayout>
+            <StackLayout Grid.Column="1" Padding="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                <Label Text="Precio" 
+                           StyleClass="DefaultText"/>
+                <Label AutomationId="ImporteLabel" Text="{Binding Precio, StringFormat='${0:n}'}}" 
+                           StyleClass="HeroDarkLabel"/>
+                <!--<Label AutomationId="ImporteLabel" Text="{Binding Titulo}" 
+                           StyleClass="HeroDarkLabel"/>-->
+
+            </StackLayout>
+        </Grid>
+    </ContentView.Content>
+</ContentView>
