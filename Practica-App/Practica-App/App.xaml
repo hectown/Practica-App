@@ -37,6 +37,7 @@
             <OnPlatform x:Key="BoldFontFamily" x:TypeArguments="x:String" Android="sans-serif-bold" iOS=".SFUIDisplay-Bold" />
             <x:Double x:Key="DefaultFontSize">15</x:Double>
             <OnPlatform x:Key="LightFontFamily" x:TypeArguments="x:String" Android="sans-serif-light" iOS=".SFUIDisplay-Light" />
+            <Color x:Key="LightBackgroundColor">#FAFAFA</Color>
 
             <Style Class="HeroDarkLabel" TargetType="Label" BaseResourceKey="ListItemTextStyle">
                 <Setter Property="FontSize" Value="{StaticResource LargeFontSize}" />
@@ -48,6 +49,20 @@
                 <Setter Property="FontSize" Value="{StaticResource DefaultFontSize}" />
                 <Setter Property="TextColor" Value="{StaticResource DarkTextColor}" />
                 <Setter Property="FontFamily" Value="{StaticResource LightFontFamily}"/>
+            </Style>
+
+
+            <Style x:Key="CallToAction" TargetType="Button">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="TextColor" Value="White" />
+                <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                <Setter Property="BorderRadius" Value="3" />
+                <Setter Property="HeightRequest" Value="40" />
+                <Style.Triggers>
+                    <Trigger TargetType="Button" Property="IsEnabled" Value="False">
+                        <Setter Property="BackgroundColor" Value="{StaticResource LightBackgroundColor}"></Setter>
+                    </Trigger>
+                </Style.Triggers>
             </Style>
 
         </ResourceDictionary>        

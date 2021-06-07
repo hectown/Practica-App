@@ -93,7 +93,7 @@ namespace Practica_App.ViewModels
                     CorreoRequest request = new CorreoRequest { Correo = Correo, Nombre = Nombre, Asunto = "Prueba Practica", Mensaje = Mensaje };
 
 
-                    var response = await client.PostAsync("https://192.168.1.74:45456/api/Correo/Send", new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json"));
+                    var response = await client.PostAsync(Constantes.url + "/api/Correo/Send", new StringContent(JsonConvert.SerializeObject(request), Encoding.UTF8, "application/json"));
                     string content = null;
 
                     if (response.IsSuccessStatusCode)
